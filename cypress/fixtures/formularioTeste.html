@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        .erro {
+            color: red;
+            display: none;
+            position: relative;
+            padding: 10px;
+            border: 1px solid red;
+            background-color: #f8d7da;
+            margin-bottom: 10px;
+        }
+
+        .erro.fechar {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .sucesso {
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulário de Cadastro</h2>
+
+    <form id="formCadastro" action="#" method="POST">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="erroEmail" class="erro">Este campo é obrigatório e deve ser um e-mail válido.</span>
+        <span id="erroEmailObrigatorio" class="erro">Preencha este campo.</span><br><br>
+
+        <label for="confirmacaoEmail">Confirmar E-mail:</label>
+        <input type="email" id="confirmacaoEmail" name="confirmacaoEmail" required>
+        <span id="erroConfirmacaoEmail" class="erro">Os e-mails não coincidem.</span>
+        <span id="erroConfirmacaoEmailObrigatorio" class="erro">Preencha este campo.</span><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        <span id="erroSenha" class="erro">A senha deve ter pelo menos 6 caracteres.</span>
+        <span id="erroSenhaObrigatorio" class="erro">Preencha este campo.</span><br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p id="mensagemSucesso" class="sucesso">Cadastro realizado com sucesso!</p>
+
+    <script>
+    document.getElementById('formCadastro').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let valid = true;
+
+        const email = document.getElementById('email');
+        const confirmacaoEmail = document.getElementById('confirmacaoEmail');
+        const senha = document.getElementById('senha');
+
+        // Remover o comportamento de ocultar as mensagens de erro inicialmente
+        document.getElementById('erroEmail').style.display = 'block';
+        document.getElementById('erroConfirmacaoEmail').style.display = 'block';
+        document.getElementById('erroSenha').style.display = 'block';
+        document.getElementById('mensagemSucesso').style.display = 'none';
+
+        // Validação dos campos
+        if (!email.value) {
+            document.getElementById('erroEmailObrigatorio').style.display = 'block';
+            
+            // Fechar a mensagem de erro após 5 segundos
+            setTimeout(function() {
+                document.getElementById('erroEmailObrigatorio').style.display = 'none';
+            }, 5000);
+
+            // Fechar manualmente ao clicar na mensagem de erro
+            document.getElementById('erroEmailObrigatorio').addEventListener('click', function() {
+                this.style.display = 'none';
+            });
+            
+            valid = false;
+        }
+
+        if (email.value !== confirmacaoEmail.value) {
+            document.getElementById('erroConfirmacaoEmail').style.display = 'block';
+            valid = false;
+        }
+
+        if (senha.value.length < 6) {
+            document.getElementById('erroSenha').style.display = 'block';
+            valid = false;
+        }
+
+        // Se todos os campos forem válidos, exibe a mensagem de sucesso
+        if (valid) {
+            document.getElementById('mensagemSucesso').style.display = 'block';
+            document.getElementById('formCadastro').reset();
+        }
+    });
+    </script>
+
+</body>
+</html>

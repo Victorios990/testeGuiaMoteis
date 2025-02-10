@@ -1,0 +1,34 @@
+{
+  "name": "teste-guia-moteis",
+  "version": "1.0.0",
+  "description": "Testar a tela de cadastro de usuario do site https://www.guiademoteis.com.br/",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "",
+    "",
+    ""
+  ],
+  "author": "Victor Almeida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://www.guiademoteis.com.br/"
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^12.0.2",
+    "cypress-plugin-api": "^2.6.1",
+    "cypress-xpath": "^2.0.1"
+  }
+}
+
+
+

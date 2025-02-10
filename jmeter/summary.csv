@@ -1,0 +1,3 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+testeGuiaMoteisGet100,100,132,58,1231,163.69,0.000%,3.34169,22.75,0.44,6970.2
+TOTAL,100,132,58,1231,163.69,0.000%,3.34169,22.75,0.44,6970.2
