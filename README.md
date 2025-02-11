@@ -1,4 +1,4 @@
-#### Testes de UI (Interface) com o Cypress 
+01 - Testes de UI (Interface) com o Cypress 
 
 Funcionalidade: Testes de Formulário de Cadastro
 
@@ -42,16 +42,17 @@ http-server
 
 O teste esta em cypress/e2e/gui/cadastroCamposObrigatorios.cy.js
 
+###########################################################################################
 
-#### Testes de API com o Postman
+Testes de API com o Postman
 
 Nesse teste foi utilizada a API mock disponibilizada no desafio: 
 https://jsonplaceholder.typicode.com/users
 
+###########################################################################################
 
 
-
-# Tempo de resposta → A API consegue responder rapidamente sob carga?
+Tempo de resposta → A API consegue responder rapidamente sob carga?
 
 Tempo médio de resposta de 132.96 ms está dentro de um padrão bom para APIs de média complexidade, especialmente se a API realizar operações simples de leitura de dados. Esse valor mostra que, em média, a API está respondendo rapidamente, o que é um indicativo de boa performance.
 Tempo mínimo de resposta: 58 ms
@@ -68,18 +69,18 @@ Tempo máximo de resposta: 1231 ms
 O tempo máximo de resposta de 1231 ms é uma anomalia, considerando que a maioria das requisições levou menos de 200 ms para ser processada. Esse valor pode ser um pico de latência ocasionado por um gargalo temporário no servidor ou rede.
 
 
-# Erros de requisição → Existem falhas quando muitos usuários acessam ao mesmo tempo?
+Erros de requisição → Existem falhas quando muitos usuários acessam ao mesmo tempo?
 
 Erro Total: 0 erros (Taxa de erro 0.0%)
 A API se comportou muito bem no que diz respeito à taxa de erro, sem registrar falhas durante o teste. Isso é um bom indicativo de que a aplicação é estável e robusta sob a carga de 100 requisições simultâneas.
 
 
-# Uso de CPU/memória → O sistema se mantém estável?
+Uso de CPU/memória → O sistema se mantém estável?
 
 Análise de CPU e Memória: Durante o teste, é importante monitorar o uso de CPU, memória e disco no servidor. Se o servidor estiver com alto uso de CPU ou memória, isso pode afetar o tempo de resposta, especialmente quando o número de requisições simultâneas aumenta.
 
 
-# Conclusões
+Conclusões
 Performance Geral: A API se comportou bem em termos de tempos de resposta (média de 132 ms) e não apresentou erros, o que é um indicativo positivo de que a aplicação é estável sob carga.
 Ajustes Necessários: A principal área de melhoria seria a redução dos picos de latência (tempo máximo de 1231 ms). Investigar os recursos do servidor, otimizar as consultas ao banco de dados e melhorar o cache pode ajudar a melhorar esses tempos.
 Escalabilidade: Caso o tráfego da API aumente, será importante garantir que a infraestrutura seja capaz de escalar horizontalmente e suportar um número maior de requisições simultâneas.
