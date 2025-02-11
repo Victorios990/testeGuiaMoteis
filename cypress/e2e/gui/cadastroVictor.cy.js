@@ -1,12 +1,14 @@
+import { faker } from '@faker-js/faker';
+const randomName = faker.person.fullName();
+
 describe('Realizar o meu cadastro de forma automatizada', () => {
 
     beforeEach(() => {
-      cy.visit('cadastroUrl');
+      cy.acessarTelaDeCadastro();
     });
 
-    it('Cadastrar com todos os dados preenchidos e opçoes selecionadas (termo de uso, promoções e publicidade)', () => {
-        cy.acessarTelaDeCadastro();
-        cy.get('#Nome').type('Victor Almeida');
+    it('Cadastrar com todos os dados preenchidos e opçoes selecionadas (termo de uso, promoções e publicidade)', () => {  
+        cy.get('#Nome').type(randomName);
         cy.get('[for="sexo-Masculino"]').click();
         cy.get('#DataNascimento').type('11/04/1990');
         cy.get('#Cep').type('13456-456');

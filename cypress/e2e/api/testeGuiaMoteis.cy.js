@@ -1,10 +1,13 @@
 describe('Testes de API para /users', () => {
 
+    beforeEach(() => {
+        cy.acessarApiUrl()
+    });
+
     it('Deve retornar uma lista de usuários com status 200 e estrutura correta', () => {
         cy.request({
             method: 'GET',
-            url: 'https://jsonplaceholder.typicode.com/users',
-
+            url,
         }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body).to.be.an('array');
@@ -18,7 +21,7 @@ describe('Testes de API para /users', () => {
     it('Deve tentar criar um usuário e verificar a resposta', () => {
         cy.request({
             method: 'POST',
-            url: 'https://jsonplaceholder.typicode.com/users',
+            url,
             body: {
                 name: "Joao Silva",
                 username: "joaosilva",
@@ -35,7 +38,7 @@ describe('Testes de API para /users', () => {
     it('Deve simular um erro 500 (exemplo teórico)', () => {
         cy.request({
             method: 'GET',
-            url: 'https://jsonplaceholder.typicode.com/users',
+            url,
             failOnStatusCode: false
         }).then((response) => {
             if (response.status === 500) {

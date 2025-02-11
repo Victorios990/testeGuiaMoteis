@@ -1,15 +1,10 @@
 describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro', () => {
 
   beforeEach(() => {
-    cy.visit('cadastroUrl');
-  });
-
-  it('Acessar a tela de cadastro', () => {
     cy.acessarTelaDeCadastro();
   });
 
   it('Enviar todos os campos em branco', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('.btCadastrar').should('be.visible').click();
     cy.get('.noty_text');
     cy.get('.noty_text').should('be.visible');
@@ -17,7 +12,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o primeiro nome', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Nome').type('José');
     cy.get('.btCadastrar').should('be.visible').click();
     cy.get('.noty_text');
@@ -26,7 +20,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o nome completo com numeros', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Nome').type('José Victor Conceição Laurentino de Almeida 2025');
     cy.get('.btCadastrar').should('be.visible').click();
     cy.get('.noty_text');
@@ -35,7 +28,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o nome completo e o selecionar o sexo masculino', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Nome').type('José Victor Conceição Laurentino de Almeida');
     cy.get('#sexo-Masculino').click();
     cy.get('.btCadastrar').should('be.visible').click();
@@ -45,7 +37,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o nome completo e o selecionar o sexo feminino', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Nome').type('Maria Bonita Teobaldina');
     cy.get('[for="sexo-Feminino"]').click();
     cy.get('.btCadastrar').should('be.visible').click();
@@ -55,7 +46,7 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o campo Data de Nascimento com datas invalida - Um ano no futuro', () => {
-    cy.acessarTelaDeCadastro();
+    
     cy.get('#DataNascimento').type('09/02/2026');
     cy.get('.btCadastrar').should('be.visible').click();
     cy.get('.noty_text');
@@ -65,7 +56,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o campo Data de Nascimento com datas invalida - 200 anos no passado', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#DataNascimento').type('09/02/1825');
     cy.get('.btCadastrar').should('be.visible').click();
     cy.get('.noty_text');
@@ -75,7 +65,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
   
   it('Cadastrar apenas o e-mail valido', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Email').type('jose@jose');
     cy.get('#ConfEmail').type('jose@jose');
     cy.get('.btCadastrar').should('be.visible').click();
@@ -85,7 +74,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas o e-mail invalido', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Email').type('jose@');
     cy.get('#ConfEmail').type('jose@');
     cy.get('.btCadastrar').should('be.visible').click();
@@ -95,7 +83,6 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
   
   it('Cadastrar apenas o e-mail valido e o confirmar e-mail invalido', () => {
-    cy.acessarTelaDeCadastro();
     cy.get('#Email').type('jose@jose');
     cy.get('#ConfEmail').type('jose@');
     cy.get('.btCadastrar').should('be.visible').click();
@@ -105,7 +92,7 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
   
   it('Cadastrar apenas o e-mail valido e o confirmar e-mail invalido', () => {
-    cy.acessarTelaDeCadastro();
+    
     cy.get('#Email').type('jose@jose');
     cy.get('#ConfEmail').type('jose@');
     cy.get('.btCadastrar').should('be.visible').click();
@@ -115,7 +102,7 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it('Cadastrar apenas uma senha fraca', () => {
-    cy.acessarTelaDeCadastro();
+    
     cy.get('#Senha').type('1234');
     cy.get('.btCadastrar').should('be.visible').click();
     cy.get('.noty_text');
@@ -124,7 +111,7 @@ describe('Teste para verificar os campos obrigatorios do Formulário de Cadastro
   });
 
   it.only('Cadastrar com todos os dados preenchidos sem concordar com o termo de uso e politica de privacidade', () => {
-    cy.acessarTelaDeCadastro();
+    
     cy.get('#Nome').type('user_name');
     cy.get('#sexo-Masculino').click();
     cy.get('#DataNascimento').type('11/04/1990');

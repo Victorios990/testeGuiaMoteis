@@ -64,22 +64,22 @@
         const confirmacaoEmail = document.getElementById('confirmacaoEmail');
         const senha = document.getElementById('senha');
 
-        // Remover o comportamento de ocultar as mensagens de erro inicialmente
+       
         document.getElementById('erroEmail').style.display = 'block';
         document.getElementById('erroConfirmacaoEmail').style.display = 'block';
         document.getElementById('erroSenha').style.display = 'block';
         document.getElementById('mensagemSucesso').style.display = 'none';
 
-        // Validação dos campos
+        
         if (!email.value) {
             document.getElementById('erroEmailObrigatorio').style.display = 'block';
             
-            // Fechar a mensagem de erro após 5 segundos
+            
             setTimeout(function() {
                 document.getElementById('erroEmailObrigatorio').style.display = 'none';
             }, 5000);
 
-            // Fechar manualmente ao clicar na mensagem de erro
+            
             document.getElementById('erroEmailObrigatorio').addEventListener('click', function() {
                 this.style.display = 'none';
             });
@@ -97,7 +97,7 @@
             valid = false;
         }
 
-        // Se todos os campos forem válidos, exibe a mensagem de sucesso
+     
         if (valid) {
             document.getElementById('mensagemSucesso').style.display = 'block';
             document.getElementById('formCadastro').reset();

@@ -1,0 +1,10 @@
+{
+    "env": {
+      "baseUrl": "https://www.guiademoteis.com.br",
+      "cadastroLocal": "localhost:/workspaces/testeGuiaMoteis/formularioTeste.html",
+      "apiUrl":"https://jsonplaceholder.typicode.com/user",
+      "user_Name": "",
+      "user_Password": "",
+      "allure": ""
+    }
+  }
