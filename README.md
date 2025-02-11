@@ -68,67 +68,73 @@ Nas pasta "reports" estão as evidencias em video e screenshots das automações
 
 Nesse teste foi utilizada a API mock disponibilizada no desafio: 
 https://jsonplaceholder.typicode.com/users
-Foi gerado relatorio com a ferramenta de linha de comando newman
 Na pasta newman tem o arquivo "relatorioPostmanNewman.html" detalha os resultados obtidos no teste de api com o postman.
 
-Resumo do Relatório de Testes - Postman
-Resumo Geral:
+Relatório de Testes - Newman
+Visão Geral
+Os testes foram executados utilizando a ferramenta Newman, que executa coleções do Postman via linha de comando. Os resultados foram gerados com base nos testes automatizados definidos na coleção testeGuiaMoteis.
 
-Iterações com falhas: 10
-Total de requisições: 50
-Scripts pré-requisição: 50
-Scripts de teste: 100
-Total de asserções: 159
-Duração total: 2.4s
-Dados recebidos: 6.13KB
-Tempo médio de resposta: 384ms
-Total de falhas: 9
-Resultados por Tipo de Requisição:
-GET - Retornar Lista
+Resumo da Execução
+Total de Iterações: 10
+Total de Requisições: 40
+Total de Scripts Pré-requisição: 40
+Total de Scripts de Teste: 80
+Total de Asserções: 84
+Duração Total: 1122ms
+Total de Dados Recebidos: 11.16KB
+Tempo Médio de Resposta: 195ms
+Total de Falhas: 4
+Resultados por Tipo de Requisição
+
+1. GET - Retornar Lista
 URL: https://jsonplaceholder.typicode.com/users
-Média de resposta: 303ms
-Média de tamanho: 5.51KB
-Status: 200
-Testes: 2 passaram, 1 falhou
-Falha: O cabeçalho Content-Type esperado era application/json, mas recebeu application/json; charset=utf-8.
-POST - Post Data
+Tempo Médio: 171ms
+Tamanho Médio da Resposta: 5.51KB
+Status Code: 200
+Testes Passados: 2
+Testes Falhados: 0
+
+2. POST - Criar Usuário
 URL: https://jsonplaceholder.typicode.com/users
-Média de resposta: 388ms
-Média de tamanho: 444B
-Status: 201
-Testes: 1 passou, 4 falharam
-Falhas:
-Esperado código 400 para erro de campo obrigatório, mas recebeu 201.
-Esperado erro ao enviar sem informações, mas recebeu 201.
-Esperado erro quando e-mails não coincidirem, mas recebeu 201.
-Esperado campo 'mensagem' na resposta, mas não encontrado.
-POST - Simular Erro 400
+Tempo Médio: 396ms
+Tamanho Médio da Resposta: 100B
+Status Code: 201
+Testes Passados: 2
+Testes Falhados: 0
+
+3. POST - Erro 400
+
 URL: https://jsonplaceholder.typicode.com/users
-Média de resposta: 228ms
-Média de tamanho: 14B
-Status: 201
-Testes: 1 passou, 4 falharam
-Falhas: (idênticas ao POST anterior)
-PUT - Update Data
-URL: https://postman-rest-api-learner.glitch.me//info?id=1
-Média de resposta: 762ms
-Média de tamanho: 120B
-Status: 200
-Testes: Todos passaram.
-DELETE - Delete Data
-URL: https://postman-rest-api-learner.glitch.me//info?id=1
-Média de resposta: 242ms
-Média de tamanho: 55B
-Status: 200
-Testes: Todos passaram.
-Principais Problemas Identificados:
-Falhas no retorno esperado de erros (códigos 400 não são retornados corretamente).
-Respostas JSON não seguem o formato esperado (Content-Type diferente).
-Campos esperados na resposta não estão presentes.
-Próximos Passos:
-Revisar o backend para garantir que os erros sejam tratados corretamente.
-Ajustar os testes no Postman para validar melhor o Content-Type.
-Verificar os dados retornados para garantir que os campos necessários estejam presentes.
+Tempo Médio: 175ms
+Tamanho Médio da Resposta: 39B
+Status Code: 201 (Esperado: 400)
+Testes Passados: 0
+Testes Falhados: 2
+
+Erros Identificados:
+AssertionError: Esperado status 400, mas recebeu 201
+AssertionError: Esperado campo 'error', mas não encontrado na resposta
+
+4. GET - Erro 500
+URL: https://jsonplaceholder.typicode.com/users
+
+Tempo Médio: 39ms
+Tamanho Médio da Resposta: 5.51KB
+Status Code: 200 (Esperado: 500)
+Testes Passados: 0
+Testes Falhados: 2
+
+Erros Identificados:
+AssertionError: Esperado status 500, mas recebeu 200
+AssertionError: Esperado campo 'error', mas não encontrado na resposta
+Principais Problemas Identificados
+Erros HTTP não retornam os status codes esperados (ex: 400 e 500 não foram retornados corretamente).
+A estrutura da resposta JSON está incorreta, pois alguns campos esperados (como 'error') estão ausentes.
+
+Recomendações e Próximos Passos
+Revisar o backend para corrigir os status codes incorretos.
+Melhorar a validação dos Content-Types e estrutura JSON.
+Atualizar os testes no Postman para validar corretamente os erros.
 
 ###########################################################################################
 

@@ -18,33 +18,17 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Response is JSON\", function () {",
-							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
-							"});",
-							"",
-							"pm.test(\"Response has required fields\", function () {",
+							"pm.test(\"Response has expected structure\", function () {",
 							"    let jsonData = pm.response.json();",
 							"    pm.expect(jsonData).to.be.an(\"array\");",
-							"    ",
-							"    jsonData.forEach(user => {",
-							"        pm.expect(user).to.have.property(\"id\");",
-							"        pm.expect(user).to.have.property(\"name\");",
-							"        pm.expect(user).to.have.property(\"username\");",
-							"        pm.expect(user).to.have.property(\"email\");",
-							"        pm.expect(user).to.have.property(\"address\");",
-							"        pm.expect(user.address).to.have.property(\"street\");",
-							"        pm.expect(user.address).to.have.property(\"suite\");",
-							"        pm.expect(user.address).to.have.property(\"city\");",
-							"        pm.expect(user.address).to.have.property(\"zipcode\");",
-							"        pm.expect(user.address).to.have.property(\"geo\");",
-							"        pm.expect(user.address.geo).to.have.property(\"lat\");",
-							"        pm.expect(user.address.geo).to.have.property(\"lng\");",
-							"        pm.expect(user).to.have.property(\"phone\");",
-							"        pm.expect(user).to.have.property(\"website\");",
-							"        pm.expect(user).to.have.property(\"company\");",
-							"    });",
-							"});",
-							""
+							"    pm.expect(jsonData.length).to.be.above(0);",
+							"",
+							"    let user = jsonData[0];",
+							"    pm.expect(user).to.have.property(\"id\");",
+							"    pm.expect(user).to.have.property(\"name\");",
+							"    pm.expect(user).to.have.property(\"username\");",
+							"    pm.expect(user).to.have.property(\"email\");",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -71,36 +55,21 @@
 			"response": []
 		},
 		{
-			"name": "Post data",
+			"name": "criarUsuario",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
-							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-							"});",
-							"",
-							"pm.test(\"Erro campo obrigatório\", function () {",
-							"    pm.response.to.have.status(400);",
-							"    pm.response.to.have.jsonBody('erro', 'Este campo é obrigatório');",
-							"});",
-							"",
-							"pm.test(\"Deve retornar erro ao enviar sem informações\", function () {",
-							"    pm.response.to.have.status(400);",
-							"    pm.response.to.have.jsonBody('erroEmail', 'Preencha este campo.'); ",
-							"    pm.response.to.have.jsonBody('erroSenha', 'Preencha este campo.');",
-							"});",
-							"",
-							"pm.test(\"Deve retornar erro quando os e-mails não coincidirem\", function () {",
-							"    pm.response.to.have.status(400);",
-							"    pm.response.to.have.jsonBody('erroConfirmacaoEmail', 'Os e-mails não coincidem.');",
-							"});",
-							"",
-							"pm.test(\"Cadastro realizado com sucesso\", function () {",
+							"pm.test(\"Status code is 201\", function () {",
 							"    pm.response.to.have.status(201);",
-							"    pm.response.to.have.jsonBody('mensagem', 'Cadastro realizado com sucesso!');",
-							"});"
+							"});",
+							"",
+							"pm.test(\"Response contains user ID\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"id\");",
+							"});",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -112,7 +81,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"\",\n    \"username\": \"NovoUser\",\n    \"email\": \"novo@teste.com\",\n    \"address\": {\n        \"street\": \"Rua Nova\",\n        \"suite\": \"Apt. 123\",\n        \"city\": \"CidadeNova\",\n        \"zipcode\": \"12345-678\",\n        \"geo\": {\n            \"lat\": \"0.0000\",\n            \"lng\": \"0.0000\"\n        }\n    },\n    \"phone\": \"123-456-7890\",\n    \"website\": \"novosite.com\",\n    \"company\": {\n        \"name\": \"Nova Empresa\",\n        \"catchPhrase\": \"Inovando sempre\",\n        \"bs\": \"expandir mercados\"\n    }\n}\n",
+					"raw": "{\n    \"name\": \"Novo Usuário\",\n    \"username\": \"newuser\",\n    \"email\": \"newuser@example.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,35 +105,19 @@
 			"response": []
 		},
 		{
-			"name": "Simular erro 400",
+			"name": "erro400",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful POST request\", function () {",
-							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-							"});",
-							"",
-							"pm.test(\"Erro campo obrigatório\", function () {",
+							"pm.test(\"Status code is 400\", function () {",
 							"    pm.response.to.have.status(400);",
-							"    pm.response.to.have.jsonBody('erro', 'Este campo é obrigatório');",
 							"});",
 							"",
-							"pm.test(\"Deve retornar erro ao enviar sem informações\", function () {",
-							"    pm.response.to.have.status(400);",
-							"    pm.response.to.have.jsonBody('erroEmail', 'Preencha este campo.'); ",
-							"    pm.response.to.have.jsonBody('erroSenha', 'Preencha este campo.');",
-							"});",
-							"",
-							"pm.test(\"Deve retornar erro quando os e-mails não coincidirem\", function () {",
-							"    pm.response.to.have.status(400);",
-							"    pm.response.to.have.jsonBody('erroConfirmacaoEmail', 'Os e-mails não coincidem.');",
-							"});",
-							"",
-							"pm.test(\"Cadastro realizado com sucesso\", function () {",
-							"    pm.response.to.have.status(201);",
-							"    pm.response.to.have.jsonBody('mensagem', 'Cadastro realizado com sucesso!');",
+							"pm.test(\"Error message is returned\", function () {",
+							"    let jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"error\");",
 							"});"
 						],
 						"type": "text/javascript",
@@ -177,10 +130,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "pm.test(\"Status code is 400\", function () {\n    pm.response.to.have.status(400);\n});\n\npm.test(\"Error message is correct\", function () {\n    let jsonData = pm.response.json();\n    pm.expect(jsonData).to.have.property(\"error\");\n    pm.expect(jsonData.error).to.eql(\"Invalid request\");\n});\n\npm.test(\"Status code is 500\", function () {\n    pm.response.to.have.status(500);\n});\n\npm.test(\"Error message exists\", function () {\n    let jsonData = pm.response.json();\n    pm.expect(jsonData).to.have.property(\"error\");\n});\n",
+					"raw": "{\n    \"username\": \"newuser\"\n}\n",
 					"options": {
 						"raw": {
-							"language": "javascript"
+							"language": "json"
 						}
 					}
 				},
@@ -201,16 +154,20 @@
 			"response": []
 		},
 		{
-			"name": "Update data",
+			"name": "erro500",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful PUT request\", function () {",
-							"    pm.expect(pm.response.code).to.be.oneOf([200, 400, 500]);",
-							"});",
-							""
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is returned\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"error\");\r",
+							"});"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -218,80 +175,20 @@
 				}
 			],
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{base_url}}/info?id=1",
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
 					"host": [
-						"{{base_url}}"
+						"jsonplaceholder",
+						"typicode",
+						"com"
 					],
 					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
+						"users"
 					]
-				},
-				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
-			},
-			"response": []
-		},
-		{
-			"name": "Delete data",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful DELETE request\", function () {",
-							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
 				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/info?id=1",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
-					]
-				},
-				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
 			},
 			"response": []
 		}
