@@ -1,10 +1,8 @@
 {
     "env": {
-      "baseUrl": "https://www.guiademoteis.com.br",
-      "cadastroLocal": "localhost:/workspaces/testeGuiaMoteis/formularioTeste.html",
-      "apiUrl":"https://jsonplaceholder.typicode.com/user",
-      "user_Name": "",
-      "user_Password": "",
-      "allure": ""
-    }
+      "baseUrl": "https://www.guiademoteis.com.br/distrito-federal",
+      "cadastroLocal": "localhost:/workspaces/testeGuiaMoteis/index.html",
+      "apiUrl":"https://jsonplaceholder.typicode.com"
+
   }
+}

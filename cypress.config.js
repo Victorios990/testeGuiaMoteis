@@ -8,7 +8,7 @@ module.exports = defineConfig({
     },
     experimentalRunAllSpecs: true,
   },
-  fixturesFolder: false,
+  fixturesFolder: 'cypress/fixtures',
   video: true,
   videoCompression: true,
   videosFolder: 'cypress/reports/videos',

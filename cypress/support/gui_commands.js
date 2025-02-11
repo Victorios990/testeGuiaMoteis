@@ -3,11 +3,12 @@ Cypress.Commands.add('acessarTelaDeCadastro', () => {
   cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
   cy.fixture('ambienteTestes').then(({ env: { baseUrl } }) => {
     cy.visit(baseUrl)
+    cy.wait(1000)
+   // cy.get('#error > p > a').click();
+    cy.get('.primeiraVezGuia > .md-close').click();
+    cy.get('#showModal').click();
+    cy.get('.loginClick > p > a').click();
   });
-  cy.get('#error > p > a').click();
-  cy.get('.primeiraVezGuia > .md-close').click();
-  cy.get('#showModal').click();
-  cy.get('.loginClick > p > a').click();
 });
 
 Cypress.Commands.add('acessarCadastroLocal', () => {
@@ -15,9 +16,10 @@ Cypress.Commands.add('acessarCadastroLocal', () => {
   cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
   cy.fixture('ambienteTestes').then(({ env: { cadastroLocal } }) => {
     cy.visit(cadastroLocal)
+    cy.wait(1000)
+    ////cy.get('#error > p > a').click();
+    cy.get('.primeiraVezGuia > .md-close').click();
+    cy.get('#showModal').click();
+    cy.get('.loginClick > p > a').click();
   });
-  cy.get('#error > p > a').click();
-  cy.get('.primeiraVezGuia > .md-close').click();
-  cy.get('#showModal').click();
-  cy.get('.loginClick > p > a').click();
 });
