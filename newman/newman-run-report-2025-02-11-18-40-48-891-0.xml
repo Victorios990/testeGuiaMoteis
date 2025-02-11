@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="testeGuiaMoteis" tests="5" time="1.073">
+  <testsuite name="retornarLista" id="1117bb44-62d2-44c8-bcfb-92009180f85d" timestamp="2025-02-11T18:40:47.338Z" tests="3" failures="1" errors="0" time="0.193">
+    <testcase name="Status code is 200" time="0.193" classname="RetornarLista"/>
+    <testcase name="Response is JSON" time="0.193" classname="RetornarLista">
+      <failure type="AssertionFailure" message="expected 'Content-Type' response header to be 'application/json' but got 'application/json; charset=utf-8'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: retornarLista.]]>
+        <![CDATA[Test description: Response is JSON.]]>
+        <![CDATA[Error message: expected 'Content-Type' response header to be 'application/json' but got 'application/json; charset=utf-8'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 'Content-Type' response header to be 'application/json' but got 'application/json; charset=utf-8'
+   at Object.eval sandbox-script.js:2:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response has required fields" time="0.193" classname="RetornarLista"/>
+  </testsuite>
+  <testsuite name="Post data" id="f09e1600-a7ec-4d85-83a6-0ab7a3c643ed" timestamp="2025-02-11T18:40:47.338Z" tests="5" failures="4" errors="0" time="0.160">
+    <testcase name="Successful POST request" time="0.160" classname="PostData"/>
+    <testcase name="Erro campo obrigatório" time="0.160" classname="PostData">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 201">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Post data.]]>
+        <![CDATA[Test description: Erro campo obrigatório.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 201.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 201
+   at Object.eval sandbox-script.js:2:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Deve retornar erro ao enviar sem informações" time="0.160" classname="PostData">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 201">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Post data.]]>
+        <![CDATA[Test description: Deve retornar erro ao enviar sem informações.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 201.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 201
+   at Object.eval sandbox-script.js:3:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Deve retornar erro quando os e-mails não coincidirem" time="0.160" classname="PostData">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 201">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Post data.]]>
+        <![CDATA[Test description: Deve retornar erro quando os e-mails não coincidirem.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 201.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 201
+   at Object.eval sandbox-script.js:4:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Cadastro realizado com sucesso" time="0.160" classname="PostData">
+      <failure type="AssertionFailure" message="expected { Object (name, username, ...) } in response to contain property 'mensagem'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Post data.]]>
+        <![CDATA[Test description: Cadastro realizado com sucesso.]]>
+        <![CDATA[Error message: expected { Object (name, username, ...) } in response to contain property 'mensagem'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (name, username, ...) } in response to contain property 'mensagem'
+   at Object.eval sandbox-script.js:5:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Simular erro 400" id="e6f08728-1ecb-48ae-99cb-f5c8facbc153" timestamp="2025-02-11T18:40:47.338Z" tests="5" failures="4" errors="0" time="0.159">
+    <testcase name="Successful POST request" time="0.159" classname="SimularErro400"/>
+    <testcase name="Erro campo obrigatório" time="0.159" classname="SimularErro400">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 201">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Simular erro 400.]]>
+        <![CDATA[Test description: Erro campo obrigatório.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 201.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 201
+   at Object.eval sandbox-script.js:2:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Deve retornar erro ao enviar sem informações" time="0.159" classname="SimularErro400">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 201">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Simular erro 400.]]>
+        <![CDATA[Test description: Deve retornar erro ao enviar sem informações.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 201.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 201
+   at Object.eval sandbox-script.js:3:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Deve retornar erro quando os e-mails não coincidirem" time="0.159" classname="SimularErro400">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 201">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Simular erro 400.]]>
+        <![CDATA[Test description: Deve retornar erro quando os e-mails não coincidirem.]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 201.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 201
+   at Object.eval sandbox-script.js:4:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Cadastro realizado com sucesso" time="0.159" classname="SimularErro400">
+      <failure type="AssertionFailure" message="expected { id: 11 } in response to contain property 'mensagem'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 8b1b866b-eece-43d9-8074-e80d2d841721.]]>
+        <![CDATA[Collection name: testeGuiaMoteis.]]>
+        <![CDATA[Request name: Simular erro 400.]]>
+        <![CDATA[Test description: Cadastro realizado com sucesso.]]>
+        <![CDATA[Error message: expected { id: 11 } in response to contain property 'mensagem'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { id: 11 } in response to contain property 'mensagem'
+   at Object.eval sandbox-script.js:5:3).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Update data" id="87eb69ac-52c9-4aed-84ac-e504e7fd22b2" timestamp="2025-02-11T18:40:47.338Z" tests="1" failures="0" errors="0" time="0.337">
+    <testcase name="Successful PUT request" time="0.337" classname="UpdateData"/>
+  </testsuite>
+  <testsuite name="Delete data" id="3271c9a5-51ac-41d3-be5a-9db9e30bb6b4" timestamp="2025-02-11T18:40:47.338Z" tests="1" failures="0" errors="0" time="0.224">
+    <testcase name="Successful DELETE request" time="0.224" classname="DeleteData"/>
+  </testsuite>
+</testsuites>

@@ -1,4 +1,4 @@
-01 - Testes de UI (Interface) com o Cypress 
+01. Testes de UI (Interface) com o Cypress 
 
 Funcionalidade: Testes de Formulário de Cadastro
 
@@ -33,24 +33,61 @@ Funcionalidade: Testes de Formulário de Cadastro
     Quando ele envia o formulário
     Então o cadastro deve ser realizado com sucesso e ele deve ver a mensagem "Cadastro realizado com sucesso"
 
-Foram realizados screenshots de todos os testes e um video durante a execução foi gravado.
-O formulario para o teste esta na pasta fixtures o arquivo formularioTeste.html
-Utilizei um servidor local simples:
-npm install -g http-server
-e iniciei o seridor com o comando:
-http-server
 
-O teste esta em cypress/e2e/gui/cadastroCamposObrigatorios.cy.js
+
+Relatório de Testes Automatizados – Cadastro de Usuário
+
+1. URL do Teste
+O teste foi realizado utilizando a seguinte URL:
+https://victorios990.github.io/testeGuiaMoteis/
+
+2. Estrutura do Teste
+Foi desenvolvida uma página simples de cadastro contendo campos obrigatórios para a realização dos testes. O arquivo principal da página de cadastro é o "index.html", localizado na raiz do repositório.
+
+3. Localização dos Testes Automatizados
+Os testes automatizados estão armazenados no seguinte diretório:
+\testeGuiaMoteis\cypress\e2e\gui
+
+Nesse diretório, há três arquivos de testes contendo o script das automações:
+
+cadastroCamposObrigatorios.cy.js: Contém a automação do formulário de cadastro, garantindo que todos os campos obrigatórios sejam preenchidos corretamente, 
+conforme solicitado no desafio.
+cadastroUsuarioGuiaDeMoteis.cy.js e cadastroUsuariosNomesAleatorios.cy.js: Implementam uma automação de cadastro de usuário diretamente no site "Guia de Motéis".
+4. Relatório de Bugs e Melhorias
+O repositório também contém o documento "relatorioDeBugsMelhorias.pdf", onde foram registrados:
+
+Bugs identificados durante o processo de cadastro.
+Sugestões de melhorias para a experiência do usuário.
+Capturas de tela como evidências dos problemas encontrados.
+Este relatório tem como objetivo documentar as validações realizadas e fornecer insumos para futuras correções e aprimoramentos na aplicação.
+Nas pasta "reports" estão as evidencias em video e screenshots das automações
 
 ###########################################################################################
 
-Testes de API com o Postman
+2. Testes de API com o Postman
 
 Nesse teste foi utilizada a API mock disponibilizada no desafio: 
 https://jsonplaceholder.typicode.com/users
 
+
+
 ###########################################################################################
 
+3. Testes de Performance - Jmeter
+
+Na pasta "jmeter/html" tem um arquivo chamado  "relatorioExecucaoJmeter.html", é o dashboard gerado em um dos testes.
+
+Resumo das Estatísticas dos Testes
+Total de Testes Executados: 100
+Falhas: 0 (Taxa de erro: 0.00%)
+Tempo Total de Execução: 132.96 segundos
+Tempo Mínimo de Resposta: 58 ms
+Tempo Máximo de Resposta: 1231 ms
+Tempo Médio de Resposta: 295.85 ms
+Tempo P95 (95% das requisições): 1229.93 ms
+Requisições por Segundo: 3.34
+Desvio Padrão do Tempo de Resposta: 22.75
+Esses dados indicam que todos os testes passaram sem falhas, com tempos de resposta variando entre 58 ms e 1231 ms. O tempo médio de resposta foi de 295.85 ms, e 95% das requisições foram atendidas em até 1229.93 ms.
 
 Tempo de resposta → A API consegue responder rapidamente sob carga?
 
@@ -68,17 +105,14 @@ O tempo mínimo de 58 ms é baixo e indicativo de que algumas requisições est�
 Tempo máximo de resposta: 1231 ms
 O tempo máximo de resposta de 1231 ms é uma anomalia, considerando que a maioria das requisições levou menos de 200 ms para ser processada. Esse valor pode ser um pico de latência ocasionado por um gargalo temporário no servidor ou rede.
 
-
 Erros de requisição → Existem falhas quando muitos usuários acessam ao mesmo tempo?
 
 Erro Total: 0 erros (Taxa de erro 0.0%)
 A API se comportou muito bem no que diz respeito à taxa de erro, sem registrar falhas durante o teste. Isso é um bom indicativo de que a aplicação é estável e robusta sob a carga de 100 requisições simultâneas.
 
-
 Uso de CPU/memória → O sistema se mantém estável?
 
 Análise de CPU e Memória: Durante o teste, é importante monitorar o uso de CPU, memória e disco no servidor. Se o servidor estiver com alto uso de CPU ou memória, isso pode afetar o tempo de resposta, especialmente quando o número de requisições simultâneas aumenta.
-
 
 Conclusões
 Performance Geral: A API se comportou bem em termos de tempos de resposta (média de 132 ms) e não apresentou erros, o que é um indicativo positivo de que a aplicação é estável sob carga.
