@@ -1,7 +1,7 @@
 {
     "env": {
       "baseUrl": "https://www.guiademoteis.com.br/distrito-federal",
-      "cadastroLocal": "localhost:/workspaces/testeGuiaMoteis/index.html",
+      "cadastroLocal": "https://victorios990.github.io/testeGuiaMoteis",
       "apiUrl":"https://jsonplaceholder.typicode.com"
 
   }
