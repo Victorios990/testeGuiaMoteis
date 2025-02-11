@@ -4,3 +4,4 @@ cypress/downloads/
 cypress/screenshots/
 cypress/videos/
 node_modules/
+cypress/reports/screenshots/gui/cadastroUsuarioGuiaDeMoteis.cy.js/Teste para verificar os campos obrigatorios do Formulário de Cadastro -- Cadastrar com todos os dados preenchidos sem concordar com o termo de uso e politica de privacidade.png
